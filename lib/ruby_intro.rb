@@ -74,7 +74,23 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  # YOUR CODE HERE
+  def initialize(i, p)
+    @isbn = i
+    @price = p
+    
+    if @isbn.length == 0 || @price <= 0
+      raise ArgumentError
+    end
+  end
+  
+  attr_accessor :isbn
+	attr_accessor :price
+	
+  def price_as_string()
+    return "$#{'%.2f' % @price}"
+  end
 end
 
-puts binary_multiple_of_4?("0")
+b1 = BookInStock.new("isbn1", 20)
+puts (b1.price_as_string)
